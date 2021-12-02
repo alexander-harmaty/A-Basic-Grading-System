@@ -26,7 +26,7 @@ public class ClassGrades {
      * default value. 
      */
     public ClassGrades(){
-        student = null;
+        student = new Student();
         submissions = null;
     }
     
