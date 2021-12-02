@@ -81,7 +81,7 @@ public class ClassGrades {
      */
     public Submission getAt(int index) throws ArrayIndexOutOfBoundsException
     {
-        if (index >= submissions.length)
+        if (index >= submissions.length || index < 0)
         {
             ArrayIndexOutOfBoundsException e;
             e = new ArrayIndexOutOfBoundsException();
