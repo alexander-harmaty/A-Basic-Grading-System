@@ -19,9 +19,9 @@ import com.google.gson.GsonBuilder;
  */
 public class Submission
 {
-    private SubDate date;
-    private String assignment;
-    private double score;
+    protected SubDate date;
+    protected String assignment;
+    protected double score;
     
     /**
      * Default constructor. Sets the values of each member variable to a 

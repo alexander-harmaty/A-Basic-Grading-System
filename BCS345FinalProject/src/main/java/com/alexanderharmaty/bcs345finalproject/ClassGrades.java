@@ -206,12 +206,16 @@ public class ClassGrades {
     @Override
     public String toString()
     {
-        String s = student.toString();
-        String sub = "";
-        /*
-        for (int i = 0; i < sub.length(); i++)
-            sub = sub + String.format("%s", sub.toString());
-        */
-        return s + sub;
+        String name = student.toString();
+        String entries = "";
+        for (int i = 0; i < submissions.length; i++)
+        {
+            entries = entries + "\n\tSubmission Date = " + submissions[i].date.getMonth();
+            entries = entries + "/" + submissions[i].date.getDay();
+            entries = entries + "/" + submissions[i].date.getYear();
+            entries = entries + "\n\tAssignment = " + submissions[i].getAssignment();
+            entries = entries + "\n\tScore = " + submissions[i].getScore();
+        }
+        return name + entries;
     }
 }
