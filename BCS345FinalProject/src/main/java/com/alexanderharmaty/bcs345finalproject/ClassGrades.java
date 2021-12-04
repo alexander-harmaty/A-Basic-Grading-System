@@ -24,9 +24,13 @@ public class ClassGrades {
     /**
      * Default constructor. Sets the values of each member variable to a 
      * default value. 
+     * The default constructor should call new on the student and the 
+     * submissions member variables. All elements of the array should have 
+     * new called on them in this method.
      */
     public ClassGrades(){
         student = new Student();
+        //this needs to be fixed
         submissions = null;
     }
     

@@ -1,0 +1,45 @@
+{
+  "student": {
+    "first": "Inaya",
+    "last": "Ali",
+    "major": "Computer Systems"
+  },
+  "submissions": [
+    {
+      "date": {
+        "month": 9,
+        "day": 1,
+        "year": 2021
+      },
+      "assignment": "Lab 1",
+      "score": 70.0
+    },
+    {
+      "date": {
+        "month": 9,
+        "day": 8,
+        "year": 2021
+      },
+      "assignment": "Quiz 1",
+      "score": 85.0
+    },
+    {
+      "date": {
+        "month": 9,
+        "day": 15,
+        "year": 2021
+      },
+      "assignment": "Homework 1",
+      "score": 90.0
+    },
+    {
+      "date": {
+        "month": 9,
+        "day": 27,
+        "year": 2021
+      },
+      "assignment": "Exam 1",
+      "score": 80.0
+    }
+  ]
+}
