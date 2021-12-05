@@ -131,7 +131,7 @@ public class SubDate
     @Override
     public String toString()
     {
-        String s = month + "\t" + day + "\t" + year;
+        String s = month + "/" + day + "/" + year;
         return s;
     }
 }

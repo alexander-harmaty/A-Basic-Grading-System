@@ -22,12 +22,12 @@
         </menus>
       </MenuBar>
       <Label text="First" />
-      <TextField />
+      <TextField fx:id="textFieldFirst" />
       <Label text="Last" />
-      <TextField />
+      <TextField fx:id="textFieldLast" />
       <Label text="Major" />
-      <TextField />
+      <TextField fx:id="textFieldMajor" />
       <Label text="Submissions" />
-      <ListView prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="listViewSubmissions" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </VBox>

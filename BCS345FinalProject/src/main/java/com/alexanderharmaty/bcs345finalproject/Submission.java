@@ -129,7 +129,9 @@ public class Submission
     @Override
     public String toString()
     {
-        String s = date + "\t" + assignment + "\t\t" + score;
+        String s = "Submission Date = " + date + "\n" +
+                "Assignment = " + assignment + "\n" + 
+                "Score = " + score;
         return s;
     }
 }

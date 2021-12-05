@@ -19,9 +19,9 @@ import com.google.gson.GsonBuilder;
  */
 public class Student 
 {
-    private String first;
-    private String last;
-    private String major;
+    protected String first;
+    protected String last;
+    protected String major;
     
     /**
      * Default constructor. Sets the values of each member variable 

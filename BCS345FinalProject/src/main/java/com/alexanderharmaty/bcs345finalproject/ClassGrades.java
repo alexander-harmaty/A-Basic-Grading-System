@@ -18,8 +18,8 @@ import com.google.gson.GsonBuilder;
  * @since 11/4/2021
  */
 public class ClassGrades {
-    private Student student;
-    private Submission[] submissions;
+    protected Student student;
+    protected Submission[] submissions;
     
     /**
      * Default constructor. Sets the values of each member variable to a 
@@ -30,7 +30,8 @@ public class ClassGrades {
      */
     public ClassGrades(){
         student = new Student();
-        //this needs to be fixed
+        
+        //this needs to be fixed: all array elements should have new called 
         submissions = null;
     }
     
