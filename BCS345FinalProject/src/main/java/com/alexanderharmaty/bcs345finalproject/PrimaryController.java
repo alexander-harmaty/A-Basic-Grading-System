@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -83,6 +84,59 @@ public class PrimaryController
         for (int i = 0; i < cg.submissions.length; i++)
             observableList.add(cg.submissions[i]);
         System.out.println("Submissions Updated!");
+    }
+    
+    @FXML
+    private void handleSaveMenuItem()
+    {
+        FileChooser fc;
+        fc = new FileChooser();
+        File selectedFile;
+        selectedFile = fc.showSaveDialog(null);
+        
+        PrintStream ps = null;
+        
+        try
+        {
+            ps = new PrintStream(selectedFile);
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File Not Found!");
+            //break;
+        }
+        
+        //int x = 100;
+        //ps.println(x);
+        
+        ClassGrades cgReport = new ClassGrades();
+        
+        String first;
+        first = this.textFieldFirst.getText();
+        cgReport.student.setFirst(first);
+        
+        String last;
+        last = this.textFieldLast.getText();
+        cgReport.student.setLast(last);
+        
+        String major;
+        major = this.textFieldMajor.getText();
+        cgReport.student.setMajor(major);
+        
+//        ObservableList<Submission> observableList 
+//                = (ObservableList<Submission>) listViewSubmissions.getItems();
+//        
+//        for(int i=0; i < observableList.size(); i++)
+//        {
+//            Submission s;
+//            s = observableList.get(i);
+//            cgReport.setSubmission(s);
+//        }
+        
+        
+        
+        
+        cgReport.report(ps);
     }
     
     @FXML

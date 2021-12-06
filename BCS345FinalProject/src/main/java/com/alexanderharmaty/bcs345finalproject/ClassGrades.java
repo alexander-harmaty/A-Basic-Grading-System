@@ -107,7 +107,7 @@ public class ClassGrades {
         ps.println("Student Grades");
         ps.println("--------------\n");
         ps.println("First: " + student.getFirst());
-        ps.println("Last: " + student.getLast());
+        ps.println("Last : " + student.getLast());
         ps.println("Major: " + student.getMajor());
         
         ps.println("\n\tMonth\tDay\tYear\tAssignment\tNumeric Grade\tLetter");
@@ -120,7 +120,14 @@ public class ClassGrades {
         for (int i=0; i < submissions.length; i++)
         {
             score = submissions[i].getScore();
-            ps.printf("%20s\t%10s\t%13.2f\t%2s\n", submissions[i].getDate(), submissions[i].getAssignment(), submissions[i].getScore(), this.getLetter(score));
+            ps.printf("%d\t%d\n%d\t%10s\t%13.2f\t%2s\n", 
+                    submissions[i].date.getMonth(),
+                    submissions[i].date.getDay(),
+                    submissions[i].date.getYear(),
+                    submissions[i].getAssignment(), 
+                    submissions[i].getScore(), 
+                    this.getLetter(score)
+            );
         }
         
         for (int i=0; i < submissions.length; i++)
@@ -133,7 +140,8 @@ public class ClassGrades {
     }
     
     /**
-     * This method helps the report method calculate letter grades from submissions[i].getScore()
+     * This method helps the report method calculate letter grades from 
+     * submissions[i].getScore()
      * @param score
      * @return letter
      */
