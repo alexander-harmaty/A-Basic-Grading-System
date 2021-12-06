@@ -56,31 +56,39 @@ public class PrimaryController
         String first;
         first = cg.student.getFirst();
         this.textFieldFirst.clear();
+        System.out.println("\nFirst Name Cleared!");
         this.textFieldFirst.setText(first);
+        System.out.println("First Name Updated!");
         
         String last;
         last = cg.student.getLast();
         this.textFieldLast.clear();
+        System.out.println("\nLast Name Cleared!");
         this.textFieldLast.setText(last);
+        System.out.println("Last Name Updated!");
         
         String major;
         major = cg.student.getMajor();
         this.textFieldMajor.clear();
+        System.out.println("\nMajor Cleared!");
         this.textFieldMajor.setText(major);
+        System.out.println("Major Updated!");
         
-        //there needs to be some sort of listView clear here
         ObservableList<Submission> observableList 
                 = (ObservableList<Submission>) listViewSubmissions.getItems();
         
+        observableList.clear();
+        System.out.println("\nSubmissions Cleared!");
+        
         for (int i = 0; i < cg.submissions.length; i++)
             observableList.add(cg.submissions[i]);
-        //Submission class toString needs some editing
+        System.out.println("Submissions Updated!");
     }
     
     @FXML
     private void handleCloseMenuItem()
     {
-        System.out.println("Close menu item pressed");
+        System.out.println("\nClose Menu Item Pressed!\nProgram Closing!");
         System.exit(0);
     }
     
