@@ -23,6 +23,8 @@ public class PrimaryController
     @FXML
     private ListView<Submission> listViewSubmissions;
     
+    public ClassGrades cg = new ClassGrades();
+    
     @FXML
     private void handleOpenMenuItem(){
         System.out.println("\nOpen Menu Item Pressed!");
@@ -49,37 +51,34 @@ public class PrimaryController
             //break;
         }
         
-        ClassGrades cg = new ClassGrades();
-        
         cg.readJSON(fr);
-        System.out.println("\nFile Read!");
+        System.out.println("\nFile Read!\n");
         
         String first;
         first = cg.student.getFirst();
         this.textFieldFirst.clear();
-        System.out.println("\nFirst Name Cleared!");
+        System.out.println("First Name Cleared!");
         this.textFieldFirst.setText(first);
         System.out.println("First Name Updated!");
         
         String last;
         last = cg.student.getLast();
         this.textFieldLast.clear();
-        System.out.println("\nLast Name Cleared!");
+        System.out.println("Last Name Cleared!");
         this.textFieldLast.setText(last);
         System.out.println("Last Name Updated!");
         
         String major;
         major = cg.student.getMajor();
         this.textFieldMajor.clear();
-        System.out.println("\nMajor Cleared!");
+        System.out.println("Major Cleared!");
         this.textFieldMajor.setText(major);
         System.out.println("Major Updated!");
         
         ObservableList<Submission> observableList 
                 = (ObservableList<Submission>) listViewSubmissions.getItems();
-        
         observableList.clear();
-        System.out.println("\nSubmissions Cleared!");
+        System.out.println("Submissions Cleared!");
         
         for (int i = 0; i < cg.submissions.length; i++)
             observableList.add(cg.submissions[i]);
@@ -89,10 +88,15 @@ public class PrimaryController
     @FXML
     private void handleSaveMenuItem()
     {
+        System.out.println("\nSave Menu Item Pressed!");
+
         FileChooser fc;
         fc = new FileChooser();
         File selectedFile;
         selectedFile = fc.showSaveDialog(null);
+        
+        System.out.println("\nName & Path Selected!");
+        System.out.println(selectedFile);
         
         PrintStream ps = null;
         
@@ -105,38 +109,21 @@ public class PrimaryController
             System.out.println("File Not Found!");
             //break;
         }
+
+        cg.report(ps);
+        System.out.println("\nReport Written!\n");
         
-        //int x = 100;
-        //ps.println(x);
+        this.textFieldFirst.clear();
+        System.out.println("First Name Cleared!");
+        this.textFieldLast.clear();
+        System.out.println("Last Name Cleared!");
+        this.textFieldMajor.clear();
+        System.out.println("Major Cleared!");
         
-        ClassGrades cgReport = new ClassGrades();
-        
-        String first;
-        first = this.textFieldFirst.getText();
-        cgReport.student.setFirst(first);
-        
-        String last;
-        last = this.textFieldLast.getText();
-        cgReport.student.setLast(last);
-        
-        String major;
-        major = this.textFieldMajor.getText();
-        cgReport.student.setMajor(major);
-        
-//        ObservableList<Submission> observableList 
-//                = (ObservableList<Submission>) listViewSubmissions.getItems();
-//        
-//        for(int i=0; i < observableList.size(); i++)
-//        {
-//            Submission s;
-//            s = observableList.get(i);
-//            cgReport.setSubmission(s);
-//        }
-        
-        
-        
-        
-        cgReport.report(ps);
+        ObservableList<Submission> observableList 
+                = (ObservableList<Submission>) listViewSubmissions.getItems();
+        observableList.clear();
+        System.out.println("Submissions Cleared!");        
     }
     
     @FXML
@@ -145,20 +132,6 @@ public class PrimaryController
         System.out.println("\nClose Menu Item Pressed!\nProgram Closing!");
         System.exit(0);
     }
-    
-    /**
-    @FXML
-    private TextField textFieldMessage;
-    
-    @FXML
-    private void handleMessage(){
-        String message;
-        message = textFieldMessage.getText();
-        System.out.println(message);
-        
-        //System.out.println("I love JAVA");
-    }
-    **/
     
     @FXML
     private void switchToSecondary() throws IOException {

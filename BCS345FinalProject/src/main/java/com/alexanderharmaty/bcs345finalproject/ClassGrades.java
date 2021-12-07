@@ -40,6 +40,7 @@ public class ClassGrades {
      * @param w value for new student
      */
     public void setStudent(Student w) {student = w;}
+    
     /**
      * This method returns student as a datatype of Student.
      * @return  student
@@ -51,6 +52,7 @@ public class ClassGrades {
      * @param s value for new submission
      */
     public void setSubmission(Submission[] s) {submissions = s;}
+    
     /**
      * This method returns submissions as a datatype of Submission[].
      * @return  submissions
@@ -120,7 +122,7 @@ public class ClassGrades {
         for (int i=0; i < submissions.length; i++)
         {
             score = submissions[i].getScore();
-            ps.printf("%d\t%d\n%d\t%10s\t%13.2f\t%2s\n", 
+            ps.printf("\t%2d\t%d\t%d\t%10s\t%13.2f\t%2s\n", 
                     submissions[i].date.getMonth(),
                     submissions[i].date.getDay(),
                     submissions[i].date.getYear(),
