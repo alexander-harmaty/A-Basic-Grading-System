@@ -32,7 +32,11 @@ public class ClassGrades {
         student = new Student();
         
         //this needs to be fixed: all array elements should have new called 
-        submissions = null;
+        submissions = new Submission[3];
+        for (int i =0; i< submissions.length; i++)
+        {
+            submissions[i] = new Submission();
+        }
     }
     
     /**

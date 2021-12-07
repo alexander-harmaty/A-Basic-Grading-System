@@ -34,55 +34,60 @@ public class PrimaryController
         File selectedFile;
         selectedFile = fc.showOpenDialog(null);
         
-        System.out.println("\nFile Selected!");
-        System.out.println(selectedFile);
+        if (selectedFile != null)
+        {
+            System.out.println("\nFile Selected!");
+            System.out.println(selectedFile);
 
-        //textFieldMessage.setText(selectedFile.toString());  
-        
-        FileReader fr = null;
-        
-        try
-        {
-            fr = new FileReader(selectedFile);
+            FileReader fr = null;
+
+            try
+            {
+                fr = new FileReader(selectedFile);
+            }
+            catch (FileNotFoundException e)
+            {
+                System.out.println("File Not Found!");
+                //break;
+            }
+
+            cg.readJSON(fr);
+            System.out.println("\nFile Read!\n");
+
+            String first;
+            first = cg.student.getFirst();
+            this.textFieldFirst.clear();
+            System.out.println("First Name Cleared!");
+            this.textFieldFirst.setText(first);
+            System.out.println("First Name Updated!");
+
+            String last;
+            last = cg.student.getLast();
+            this.textFieldLast.clear();
+            System.out.println("Last Name Cleared!");
+            this.textFieldLast.setText(last);
+            System.out.println("Last Name Updated!");
+
+            String major;
+            major = cg.student.getMajor();
+            this.textFieldMajor.clear();
+            System.out.println("Major Cleared!");
+            this.textFieldMajor.setText(major);
+            System.out.println("Major Updated!");
+
+            ObservableList<Submission> observableList 
+                    = (ObservableList<Submission>) listViewSubmissions.getItems();
+            observableList.clear();
+            System.out.println("Submissions Cleared!");
+
+            for (int i = 0; i < cg.submissions.length; i++)
+                observableList.add(cg.submissions[i]);
+            System.out.println("Submissions Updated!");
         }
-        catch (FileNotFoundException e)
+        else
         {
-            System.out.println("File Not Found!");
-            //break;
+            System.out.println("File Chooser Closed!");            
         }
-        
-        cg.readJSON(fr);
-        System.out.println("\nFile Read!\n");
-        
-        String first;
-        first = cg.student.getFirst();
-        this.textFieldFirst.clear();
-        System.out.println("First Name Cleared!");
-        this.textFieldFirst.setText(first);
-        System.out.println("First Name Updated!");
-        
-        String last;
-        last = cg.student.getLast();
-        this.textFieldLast.clear();
-        System.out.println("Last Name Cleared!");
-        this.textFieldLast.setText(last);
-        System.out.println("Last Name Updated!");
-        
-        String major;
-        major = cg.student.getMajor();
-        this.textFieldMajor.clear();
-        System.out.println("Major Cleared!");
-        this.textFieldMajor.setText(major);
-        System.out.println("Major Updated!");
-        
-        ObservableList<Submission> observableList 
-                = (ObservableList<Submission>) listViewSubmissions.getItems();
-        observableList.clear();
-        System.out.println("Submissions Cleared!");
-        
-        for (int i = 0; i < cg.submissions.length; i++)
-            observableList.add(cg.submissions[i]);
-        System.out.println("Submissions Updated!");
     }
     
     @FXML
@@ -95,35 +100,42 @@ public class PrimaryController
         File selectedFile;
         selectedFile = fc.showSaveDialog(null);
         
-        System.out.println("\nName & Path Selected!");
-        System.out.println(selectedFile);
-        
-        PrintStream ps = null;
-        
-        try
+        if (selectedFile != null)
         {
-            ps = new PrintStream(selectedFile);
-        }
-        catch (FileNotFoundException e)
-        {
-            System.out.println("File Not Found!");
-            //break;
-        }
+            System.out.println("\nName & Path Selected!");
+            System.out.println(selectedFile);
 
-        cg.report(ps);
-        System.out.println("\nReport Written!\n");
-        
-        this.textFieldFirst.clear();
-        System.out.println("First Name Cleared!");
-        this.textFieldLast.clear();
-        System.out.println("Last Name Cleared!");
-        this.textFieldMajor.clear();
-        System.out.println("Major Cleared!");
-        
-        ObservableList<Submission> observableList 
-                = (ObservableList<Submission>) listViewSubmissions.getItems();
-        observableList.clear();
-        System.out.println("Submissions Cleared!");        
+            PrintStream ps = null;
+
+            try
+            {
+                ps = new PrintStream(selectedFile);
+            }
+            catch (FileNotFoundException e)
+            {
+                System.out.println("File Not Found!");
+                //break;
+            }
+
+            cg.report(ps);
+            System.out.println("\nReport Written!\n");
+
+            this.textFieldFirst.clear();
+            System.out.println("First Name Cleared!");
+            this.textFieldLast.clear();
+            System.out.println("Last Name Cleared!");
+            this.textFieldMajor.clear();
+            System.out.println("Major Cleared!");
+
+            ObservableList<Submission> observableList 
+                    = (ObservableList<Submission>) listViewSubmissions.getItems();
+            observableList.clear();
+            System.out.println("Submissions Cleared!");  
+        }
+        else
+        {
+            System.out.println("File Chooser Closed!");            
+        }
     }
     
     @FXML
