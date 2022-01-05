@@ -1,4 +1,4 @@
-package com.alexanderharmaty.bcs345finalproject;
+package com.alexanderharmaty.abasicgradingsystem;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

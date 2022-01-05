@@ -1,0 +1,16 @@
+Student Grades
+--------------
+
+First: Inaya
+Last : Ali
+Major: Computer Systems
+
+	Month	Day	Year	Assignment	Numeric Grade	Letter
+	-----	---	----	----------	-------------	------
+	 9	1	2021	     Lab 1	        70.00	C-
+	 9	8	2021	    Quiz 1	        85.00	B 
+	 9	15	2021	Homework 1	        90.00	A-
+	 9	27	2021	    Exam 1	        80.00	B-
+
+Numberic Average: 81.25
+Overall Letter  : B-
