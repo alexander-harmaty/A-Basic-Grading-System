@@ -1,4 +1,4 @@
-package com.alexanderharmaty.abasicgradingsystem;
+package com.alexanderharmaty.bcs345finalproject;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package com.alexanderharmaty.abasicgradingsystem;
+package com.alexanderharmaty.bcs345finalproject;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

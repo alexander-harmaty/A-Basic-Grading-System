@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.alexanderharmaty.abasicgradingsystem;
+package com.alexanderharmaty.bcs345finalproject;
 
 import java.io.FileReader;
 import java.io.PrintStream;
